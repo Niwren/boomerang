@@ -7,7 +7,6 @@
     <meta name="robots" content="noindex,nofollow" />
     <title>Yakında Yayındayız</title>
 
-    <!-- SADECE BU ALANLARI DÜZENLE -->
     <script>
         const brandName = "ATS OTOMASYON VE YAZILIM A.Ş.";
         const headline = "Bu alan adı için yeni web sitesi hazırlanıyor.";
@@ -71,7 +70,6 @@
         }
         }
 
-        /* Blurlu logo arkaplan */
         body::before {
             content: "";
             position: absolute;
@@ -85,7 +83,6 @@
             z-index: 0;
         }
 
-        /* Vinyet + kontrast */
         body::after {
             content: "";
             position: absolute;
@@ -97,7 +94,6 @@
             z-index: 0;
         }
 
-        /* === Hafif, kasmayan hareketli ışık (tek katman) === */
         .ambient {
             position: absolute;
             inset: -10%;
@@ -497,7 +493,7 @@
             a.btn, button.btn{
                 width: 100%;
                 justify-content: center;
-                padding: 14px 16px; /* parmak dostu */
+                padding: 14px 16px; 
                 border-radius: 16px;
                 align-items: center;
             }
@@ -608,37 +604,31 @@
     </main>
 
     <script>
-        // Logo arkaplanı
         const s = document.createElement("style");
         s.textContent = `body::before{ background-image: url('${logoFile}'); }`;
         document.head.appendChild(s);
 
-        // Metinler
         document.getElementById("brandBadge").textContent = brandName;
         document.getElementById("headline").textContent = headline;
         document.getElementById("subline").textContent = subline;
 
-        // Telefon
         const phoneLink = document.getElementById("phoneLink");
         phoneLink.textContent = phoneDisplay;
         phoneLink.href = `tel:${phoneTel}`;
         document.getElementById("callBtn").href = `tel:${phoneTel}`;
 
-        // Site
         const siteLink = document.getElementById("siteLink");
         siteLink.textContent = siteUrl.replace(/^https?:\/\//, "");
         siteLink.href = siteUrl;
         document.getElementById("visitBtn").href = siteUrl;
         document.getElementById("targetMono").textContent = siteUrl;
 
-        // E-posta (opsiyonel)
         if (email && email.includes("@")) {
             document.getElementById("emailBox").style.display = "block";
             const emailLink = document.getElementById("emailLink");
             emailLink.textContent = email;
             emailLink.href = `mailto:${email}`;
         }
-        // Mini toast
         function toast(msg) {
             const t = document.createElement("div");
             t.textContent = msg;
@@ -666,7 +656,6 @@
             setTimeout(() => t.remove(), 2200);
         }
 
-        // Ripple
         function addRipple(el, ev) {
             const rect = el.getBoundingClientRect();
             const r = document.createElement("span");
@@ -682,7 +671,6 @@
             btn.addEventListener("click", (ev) => addRipple(btn, ev));
         });
 
-        // Tilt (istersen tamamen kapat: aşağıdaki bloğu silebilirsin)
         const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!prefersReduced) {
             const cards = [document.getElementById("cardMain"), document.getElementById("cardSide")];
@@ -702,3 +690,4 @@
 </body>
 
 </html>
+
